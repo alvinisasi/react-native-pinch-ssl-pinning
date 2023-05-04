@@ -1,10 +1,28 @@
 
 package com.reactlibrary;
 
+import android.os.AsyncTask;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.UnexpectedNativeTypeException;
+import com.facebook.react.bridge.WritableMap;
+
+import com.reactlibrary.pinch.models.HttpRequest;
+import com.reactlibrary.pinch.models.HttpResponse;
+import com.reactlibrary.pinch.utils.HttpUtil;
+import com.reactlibrary.pinch.utils.JsonUtil;
+
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.net.ConnectException;
@@ -14,6 +32,8 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
+
+
 
 public class RNPinchSslPinningModule extends ReactContextBaseJavaModule {
 
@@ -25,7 +45,7 @@ public class RNPinchSslPinningModule extends ReactContextBaseJavaModule {
   private static final String OPT_SSL_PINNING_KEY = "sslPinning";
   private static final String OPT_TIMEOUT_KEY = "timeoutInterval";
 
-  private HttpUtil httpUtil;
+  private HTTPUtil httpUtil;
   private String packageName = null;
   private String displayName = null;
   private String version = null;
