@@ -45,7 +45,7 @@ public class RNPinchSslPinningModule extends ReactContextBaseJavaModule {
   private static final String OPT_SSL_PINNING_KEY = "sslPinning";
   private static final String OPT_TIMEOUT_KEY = "timeoutInterval";
 
-  private HTTPUtil httpUtil;
+  private HttpUtil httpUtil;
   private String packageName = null;
   private String displayName = null;
   private String version = null;
