@@ -10,7 +10,11 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
+<<<<<<< HEAD
+import com.reactlibrary.RNPinchSslPinningModule;
+=======
 import com.reactlibrary.RNPinch;
+>>>>>>> d399689365ad04b721a460d9c8adf5066ec8ca36
 
 public class RNPinchSslPinningPackage implements ReactPackage {
     public List<Class<? extends JavaScriptModule>> createJSModules() {
@@ -26,7 +30,7 @@ public class RNPinchSslPinningPackage implements ReactPackage {
     public List<NativeModule> createNativeModules(
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new RNPinch(reactContext));
+        modules.add(new RNPinchSslPinningModule(reactContext));
         return modules;
     }
 //    @Override
